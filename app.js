@@ -14,7 +14,7 @@ app.use(cors());
 
 // app.use("/", express.static("client"));
 const url = process.env.MONGO_URI || process.env.DATABASE;
-
+console.log(PORT);
 mongoose.connect(
   url,
   {
