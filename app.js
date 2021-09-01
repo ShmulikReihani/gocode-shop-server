@@ -6,13 +6,12 @@ const app = express();
 const setup = require("./controllers/setup");
 const mongoose = require("mongoose");
 
-const PORT = process.env.PORT || 5001;
-
+app.use("/", express.static("client/build"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.use("/", express.static("client/build"));
+const PORT = process.env.PORT || 5001;
 const url = process.env.MONGO_URI || process.env.DATABASE;
 mongoose.connect(
   url,
@@ -35,9 +34,9 @@ app.get("/", (req, res) => {
 app.use("/api", require("./api/index"));
 setup(app);
 
-// app.get("*", (req, res) => {
-//   res.sendFile(__dirname + "/client/build/index.html");
-// });
+app.get("*", (req, res) => {
+  res.sendFile(__dirname + "/client/build/index.html");
+});
 
 // app.listen(8000, () => {
 //   console.log(`YOU CONNECT TO http://localhost:${PORT}`);

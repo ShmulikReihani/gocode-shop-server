@@ -51,7 +51,7 @@ export default function SignIn() {
   async function submitHandler(e) {
     e.preventDefault();
     //   const {email,password,firstName,lastName} = controles;
-    const url = "http://localhost:8000/api/users/authentication";
+    const url = "/api/users/authentication";
     const options = {
       headers: {
         "Content-Type": "application/json",

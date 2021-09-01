@@ -102,7 +102,7 @@ const Cart = ({ handleClose }) => {
         "Content-Type": "application/json",
       },
     };
-    const url = "http://localhost:8000/api/orders";
+    const url = "/api/orders";
     try {
       const ord = await axios.post(url, order, options);
       console.log(ord);

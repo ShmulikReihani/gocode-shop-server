@@ -34,7 +34,7 @@ const Home = () => {
 
   useEffect(() => {
     setSpinner((prev) => !prev);
-    const url = "http://localhost:8000/api/products";
+    const url = "/api/products";
     axios
       .get(url)
       .then((res) => {

@@ -37,7 +37,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     setLodding((prev) => !prev);
-    const url = `http://localhost:8000/api/products/${params.id}`;
+    const url = `/api/products/${params.id}`;
     axios
       .get(url)
       .then((res) => {
@@ -51,7 +51,7 @@ const ProductDetails = () => {
   }, []);
 
   function handlerDelete() {
-    const url = `http://localhost:8000/api/products/${params.id}`;
+    const url = `/api/products/${params.id}`;
     axios
       .delete(url)
       .then((res) => {
