@@ -31,12 +31,13 @@ mongoose.connect(
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
-app.get("*", (req, res) => {
-  res.sendFile(__dirname + "/client/build/index.html");
-});
 
 app.use("/api", require("./api/index"));
 setup(app);
+
+// app.get("*", (req, res) => {
+//   res.sendFile(__dirname + "/client/build/index.html");
+// });
 
 // app.listen(8000, () => {
 //   console.log(`YOU CONNECT TO http://localhost:${PORT}`);
