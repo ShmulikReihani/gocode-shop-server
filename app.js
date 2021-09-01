@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-// app.use("/", express.static("client"));
+app.use("/", express.static("client/build"));
 const url = process.env.MONGO_URI || process.env.DATABASE;
 mongoose.connect(
   url,
@@ -30,6 +30,9 @@ mongoose.connect(
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
+});
+app.get("*", (req, res) => {
+  res.sendFile(__dirname + "/client/build/index.html");
 });
 
 app.use("/api", require("./api/index"));
